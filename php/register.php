@@ -11,14 +11,19 @@ if (mysqli_connect_errno())
 
 $data = json_decode(file_get_contents("php://input"));
 $uname = mysqli_real_escape_string($con, $data->uname);
-$pass = md5(mysqli_real_escape_string($con, $data->pass));
+$pass = mysqli_real_escape_string($con, $data->pass);
 
-$sql1="SELECT * FROM users WHERE uname='$uname'" ;
-$result=mysqli_query($con,$sql1);
+
+if($uname != '') {
+  if($pass != '') {
+
+    $sql1="SELECT * FROM users WHERE uname='$uname'";
+    $result=mysqli_query($con,$sql1);
     if (mysqli_num_rows($result) > 0) {
       echo 2;
     } else {
-      $sql="INSERT INTO users (uname, pass) VALUES ('$uname','$pass')" ;
+      $pass2 = md5($pass);
+      $sql="INSERT INTO users (uname, pass) VALUES ('$uname','$pass2')" ;
 
       if ($con->query($sql) === TRUE) {
           echo 1;
@@ -26,6 +31,14 @@ $result=mysqli_query($con,$sql1);
           echo "Error: " . $sql . "<br>" . $con->error;
       }
     }
+  } else {
+    echo 4;
+  }
+} else {
+  echo 3;
+}
+
+
 
 
 mysqli_close($con);
