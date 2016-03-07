@@ -1,0 +1,61 @@
+<!--<!DOCTYPE html>
+<html lang="en" ng-app="ToDo">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=0.75, maximum-scale=0.75, user-scalable=0">
+	<title>Angularjs</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>-->
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+
+				<h3 ng-controller="greetingsCtrl" class="greetings">Hello, dear <strong>{{textData.uname}}!</strong></h3>
+
+				<div class="userdash" ng-controller="logoutCtrl">
+					<div> If you want to log out press this button:<button class="btn btn-default" ng-click="logout()">Log out</button></div>
+				</div>
+
+				<div ng-controller="createlistCtrl">
+
+				<h3>Dashboard</h3>
+				
+					<form name="createlistForm">
+						<div class="col-lg-4 col-md-6 col-xs-8">
+
+							<input 
+								class="form-control insert-input" 
+								type="text" ng-model="createlist" 
+								name="createlistInput" 
+								ng-minlength="3"
+								placeholder="name of new list"
+								ng-maxlength="30"
+								required >
+							
+							<span ng-show="createlistForm.createlistInput.$error.minlength">Name of the list is too short</span>
+							<span ng-show="createlistForm.createlistInput.$error.maxlength">Name of the list is too long</span>
+
+						</div>
+						<button class="btn btn-info" ng-disabled="createlistForm.$invalid" ng-click="createListSubmit()">Create a new list</button>
+					</form>
+					
+					<ul>
+						<li ng-repeat="list in mylists track by $index" ng-click="gotoList(list.list_id)">{{list.listname}}</li>
+					</ul>
+
+				</div>
+				
+
+				
+			</div>
+		</div>
+	</div>
+<!--
+</body>
+</html>-->

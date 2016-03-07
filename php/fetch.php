@@ -9,8 +9,9 @@ require 'mysqlconnect.php';
 
 $data = json_decode(file_get_contents("php://input"));
 $row = $data->row;
+$listnumber = $data->listnumber;
 
-$result = $con->query("SELECT name, done, avaliable, id, row FROM freelist WHERE row='$row'");
+$result = $con->query("SELECT name, done, avaliable, id, row FROM freelist WHERE row='$row' and listnumber='$listnumber'");
 
 $outp = "";
 while($rs = $result->fetch_array(MYSQLI_ASSOC)) {

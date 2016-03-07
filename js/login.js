@@ -15,6 +15,9 @@ app.config(function($routeProvider){
 				}
 			}
 		},
+		templateUrl: 'dashboard.html'
+	})
+	.when('/list', {
 		templateUrl: 'list.html'
 	})
 	.otherwise({

@@ -7,7 +7,7 @@ var app = angular.module('ToDo',['login']);
 		app.controller('todoController',function($scope, $http, $rootScope){
 
 			function fetch(){
-				$http.post("php/fetch.php", {'row':$rootScope.userId})
+				$http.post("php/fetch.php", {'row':$rootScope.userId, 'listnumber':$rootScope.currentListId})
 				.then(function (response) {
 					console.log(response.data.records);
 					console.log('USER '+ $rootScope.userId);
@@ -22,7 +22,7 @@ var app = angular.module('ToDo',['login']);
 					if($rootScope.loggedIn == true){
 						fetch();
 					}
-				}, 2000);
+				}, 3000);
 			}
 			if($rootScope.loggedIn == true){
 				fetch();
@@ -32,7 +32,7 @@ var app = angular.module('ToDo',['login']);
 			$scope.insertItem = function(){
 				$scope.deal = $scope.deal.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 				if( $scope.deal != '' && $scope.deal != undefined ){
-					$http.post("php/insert.php",{'name':$scope.deal, 'done':0, 'avaliable':0, 'row':$rootScope.userId})
+					$http.post("php/insert.php",{'name':$scope.deal, 'done':0, 'avaliable':0, 'row':$rootScope.userId, 'listnumber':$rootScope.currentListId})
 					.success(function(data,status,headers,config){
 						console.log(data + "data inserted successfully");
 						console.log(data);
@@ -119,6 +119,10 @@ var app = angular.module('ToDo',['login']);
 								$location.path('/');
 							}
 				});
+			}
+
+			$scope.todashboard = function(){
+				$location.path('/');
 			}
 		});
 
