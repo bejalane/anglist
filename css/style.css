@@ -75,5 +75,33 @@
 	}
 
 
-	
+	ul.lists {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	ul.lists li {
+		padding: 10px;
+		box-sizing: border-box;
+		width: 25%;
+		float: left;
+	}
+
+	ul.lists li img {
+		min-width: 100px;
+		width: 30%;
+	}
+
+@media (max-width: 991px) {
+	ul.lists li {
+		width: 33%;
+	}
+}
+
+@media (max-width: 650px) {
+	ul.lists li {
+		width: 50%;
+	}
+}
 
