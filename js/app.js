@@ -39,21 +39,44 @@ var app = angular.module('ToDo',['login']);
 			
 
 			$scope.insertItem = function(){
-				$scope.deal = $scope.deal.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-				if( $scope.deal != '' && $scope.deal != undefined ){
-					$http.post("php/insert.php",{'name':$scope.deal, 'done':0, 'avaliable':0, 'row':$rootScope.userId, 'listnumber':$rootScope.currentListId})
-					.success(function(data,status,headers,config){
-						//console.log(data + "data inserted successfully");
-						//console.log(data);
-						//console.log($rootScope.userId);
-						data.avaliable = (data.avaliable == 0) ? false : true;
-						data.done = (data.done == 0) ? false : true;
-						$scope.todoList.push(data);
-					});
+				if($scope.deal.indexOf(';') === -1)
+					{
+						$scope.deal = $scope.deal.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+						if( $scope.deal != '' && $scope.deal != undefined ){
+							$http.post("php/insert.php",{'name':$scope.deal, 'done':0, 'avaliable':0, 'row':$rootScope.userId, 'listnumber':$rootScope.currentListId})
+							.success(function(data,status,headers,config){
+								//console.log(data + "data inserted successfully");
+								//console.log(data);
+								//console.log($rootScope.userId);
+								data.avaliable = (data.avaliable == 0) ? false : true;
+								data.done = (data.done == 0) ? false : true;
+								$scope.todoList.push(data);
+							});
+						} else {
+							alert('enter smth');
+						}
+						$scope.deal = '';
 				} else {
-					alert('enter smth');
+					var itemsarray = [];
+					var string = $scope.deal;
+					var count = (string.match(/;/g) || []).length;
+					if(string.slice(-1) !== ';'){
+						count = count + 1;
+						string = string + ' ';
+					}
+					for(var i=0; i<count; i++) {
+						var workstring = string;
+						var strLength = workstring.length;
+						var x = workstring.indexOf(';');
+						var item = string.slice(0,x);
+						itemsarray.push(item);
+						console.log(itemsarray);
+						workstring.split("");
+						workstring = workstring.slice(x+1,strLength);
+						string = workstring;
+					}
+					
 				}
-				$scope.deal = '';
 			}
 
 			$scope.removeItem = function(index){
