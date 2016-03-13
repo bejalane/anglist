@@ -4,7 +4,7 @@ var app = angular.module('ToDo',['login']);
 
 		var todoList = [];
 
-		app.controller('todoController',function($scope, $http, $rootScope){
+		app.controller('todoController',function($scope, $http, $rootScope, $location){
 
 			function fetchlists(){
 			$http.post("php/listname.php", {'listnumber':$rootScope.currentListId})
@@ -13,6 +13,22 @@ var app = angular.module('ToDo',['login']);
 				});
 			}
 			fetchlists();
+
+			function setListCookies(){
+				if($location.path('/list')){
+					$http.post("php/setlistcookies.php", {'row':$rootScope.userId, 'listnumber':$rootScope.currentListId})
+					.then(function (response) {
+						console.log('coockiesss list = ' + response);
+					});
+				} else {
+					$http.post("php/setdboardcookies.php", {'row':$rootScope.userId})
+					.then(function (response) {
+						console.log('coockiessss dboard = ' + response);
+					});
+				}
+				
+			}
+			setListCookies();
 
 			function fetch(){
 				$http.post("php/fetch.php", {'row':$rootScope.userId, 'listnumber':$rootScope.currentListId})
@@ -37,13 +53,37 @@ var app = angular.module('ToDo',['login']);
 				fetch();
 			}
 			
+			$scope.spaceEnable = false;
+
+			$scope.useSpace = function(){
+				$scope.spaceEnable = $scope.todo.space;
+			}
+			
 
 			$scope.insertItem = function(){
-				if($scope.deal.indexOf(';') === -1)
-					{
-						$scope.deal = $scope.deal.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-						if( $scope.deal != '' && $scope.deal != undefined ){
-							$http.post("php/insert.php",{'name':$scope.deal, 'done':0, 'avaliable':0, 'row':$rootScope.userId, 'listnumber':$rootScope.currentListId})
+				if($scope.spaceEnable === true){
+					var itemsarray = [];
+						var string = $scope.deal;
+						var count = (string.match(/\s/g) || []).length;
+						if(string.slice(-1) !== ' '){
+							count = count + 1;
+						}
+						console.log(count);
+						for(var i=0; i<count; i++) {
+							var workstring = string;
+							var strLength = workstring.length;
+							var x = workstring.indexOf(' ');
+							var item = string.slice(0,x);
+							//item = item.replace(/^ +/gm, '');
+							itemsarray.push(item);
+							//console.log(itemsarray);
+							workstring.split("");
+							workstring = workstring.slice(x+1,strLength);
+							string = workstring;
+						}
+
+						for(var j=0; j<itemsarray.length; j++){
+							$http.post("php/insert.php",{'name':itemsarray[j], 'done':0, 'avaliable':0, 'row':$rootScope.userId, 'listnumber':$rootScope.currentListId})
 							.success(function(data,status,headers,config){
 								//console.log(data + "data inserted successfully");
 								//console.log(data);
@@ -52,30 +92,62 @@ var app = angular.module('ToDo',['login']);
 								data.done = (data.done == 0) ? false : true;
 								$scope.todoList.push(data);
 							});
-						} else {
-							alert('enter smth');
+						}
+
+						$scope.deal = '';
+						$scope.spaceEnable = false;
+						$scope.todo.space = false;
+				} else if($scope.spaceEnable === false){
+					if($scope.deal.indexOf(';') === -1)
+						{
+							if( $scope.deal != '' && $scope.deal != undefined ){
+								$http.post("php/insert.php",{'name':$scope.deal, 'done':0, 'avaliable':0, 'row':$rootScope.userId, 'listnumber':$rootScope.currentListId})
+								.success(function(data,status,headers,config){
+									//console.log(data + "data inserted successfully");
+									//console.log(data);
+									//console.log($rootScope.userId);
+									data.avaliable = (data.avaliable == 0) ? false : true;
+									data.done = (data.done == 0) ? false : true;
+									$scope.todoList.push(data);
+								});
+							} else {
+								alert('enter smth');
+							}
+							$scope.deal = '';
+					} else {
+						var itemsarray = [];
+						var string = $scope.deal;
+						var count = (string.match(/;/g) || []).length;
+						if(string.slice(-1) !== ';'){
+							count = count + 1;
+							string = string + ' ';
+						}
+						for(var i=0; i<count; i++) {
+							var workstring = string;
+							var strLength = workstring.length;
+							var x = workstring.indexOf(';');
+							var item = string.slice(0,x);
+							item = item.replace(/^ +/gm, '');
+							itemsarray.push(item);
+							//console.log(itemsarray);
+							workstring.split("");
+							workstring = workstring.slice(x+1,strLength);
+							string = workstring;
+						}
+
+						for(var j=0; j<itemsarray.length; j++){
+							$http.post("php/insert.php",{'name':itemsarray[j], 'done':0, 'avaliable':0, 'row':$rootScope.userId, 'listnumber':$rootScope.currentListId})
+							.success(function(data,status,headers,config){
+								//console.log(data + "data inserted successfully");
+								//console.log(data);
+								//console.log($rootScope.userId);
+								data.avaliable = (data.avaliable == 0) ? false : true;
+								data.done = (data.done == 0) ? false : true;
+								$scope.todoList.push(data);
+							});
 						}
 						$scope.deal = '';
-				} else {
-					var itemsarray = [];
-					var string = $scope.deal;
-					var count = (string.match(/;/g) || []).length;
-					if(string.slice(-1) !== ';'){
-						count = count + 1;
-						string = string + ' ';
 					}
-					for(var i=0; i<count; i++) {
-						var workstring = string;
-						var strLength = workstring.length;
-						var x = workstring.indexOf(';');
-						var item = string.slice(0,x);
-						itemsarray.push(item);
-						console.log(itemsarray);
-						workstring.split("");
-						workstring = workstring.slice(x+1,strLength);
-						string = workstring;
-					}
-					
 				}
 			}
 
@@ -139,7 +211,7 @@ var app = angular.module('ToDo',['login']);
 
 
 		app.controller('logoutCtrl',function($scope, $http, $rootScope, $location){
-			$scope.logout = function(){
+			/*$scope.logout = function(){
 				$http.post("php/logout.php", {'userId':$rootScope.userId})
 						.then(function (response) {
 							//console.log(response.data)
@@ -150,6 +222,20 @@ var app = angular.module('ToDo',['login']);
 								//console.log($rootScope.userId);
 								$location.path('/');
 							}
+				});
+			}*/
+
+			$scope.logout = function(){
+				$http.post("php/logout.php")
+				.then(function (response) {
+					//console.log(response.data)
+					if(response.data == 'nocookies') {
+						$rootScope.userId = 'nocookies';
+						$rootScope.loggedIn = false;
+						//console.log($rootScope.loggedIn);
+						//console.log($rootScope.userId);
+						$location.path('/');
+					}
 				});
 			}
 

@@ -10,14 +10,16 @@ if (mysqli_connect_errno())
   }
 
 $data = json_decode(file_get_contents("php://input"));
-$name = mysqli_real_escape_string($con, $data->name);
+$name = $data->name;
 $row = $data->row;
 $done = $data->done;
 $avaliable = $data->avaliable;
 $listnumber = $data->listnumber;
 
-$replace = array('"','£','$','%','%','^','&','*','=','\\','/','[',']','{','}',';',':','@','#','~','<',',','>','?','|');
-$name = str_replace($replace, "", $name);
+//$replace = array('"','£','$','%','%','^','&','*','=','\\','/','[',']','{','}',';',':','@','#','~','<',',','>','?','|');
+//$name = str_replace($replace, "", $name);
+
+
 
 $sql="INSERT INTO freelist (name, done, avaliable, row, listnumber)
 VALUES ('$name','$done','$avaliable', '$row', '$listnumber')";
