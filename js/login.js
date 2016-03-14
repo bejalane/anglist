@@ -5,29 +5,53 @@ var app = angular.module('login',['ngRoute']);
 app.config(function($routeProvider){
 	$routeProvider
 	.when('/', {
+		resolve: {
+			"check": function($location, $rootScope, cookiesSvc){
+				cookiesSvc.checkCookie();
+				/*if($rootScope.loggedIn && !$rootScope.currentListId) {
+					$location.path('/dashboard');
+				} else if($rootScope.userId && $rootScope.currentListId) {
+					$location.path('/list');
+				}*/
+			}
+		},
 		templateUrl: 'login.html'
 	})
 	.when('/dashboard', {
 		resolve: {
-			"check": function($location, $rootScope){
-				if(!$rootScope.loggedIn) {
+			"check": function($location, $rootScope, cookiesSvc){
+				cookiesSvc.checkCookie();
+				/*if(!$rootScope.loggedIn) {
 					$location.path('/');
-				}
+				} else if($rootScope.userId && $rootScope.currentListId) {
+					$location.path('/list');
+				}*/
 			}
 		},
 		templateUrl: 'dashboard.html'
 	})
 	.when('/list', {
-		templateUrl: 'list.html'
+		resolve: {
+			"check": function($location, $rootScope, cookiesSvc){
+				cookiesSvc.checkCookie();
+				/*if(!$rootScope.loggedIn) {
+					$location.path('/');
+				} else if($rootScope.userId && !$rootScope.currentListId) {
+					$location.path('/dashboard');
+				}*/
+			}
+		},
+		templateUrl: 'list.html',
+		controller: 'todoController'
 	})
 	.otherwise({
 		redirectTo: '/'
 	});
 });
 
-app.controller('loginCtrl', function($scope, $location, $rootScope, $http){
+app.controller('loginCtrl', function($scope, $location, $rootScope, $http, cookiesSvc){
 
-	function checkCockie(){
+	/*function checkCockie(){
 		$http.post("php/checkcookie.php",{'uname':$scope.username, 'pass':$scope.password })
 		.success(function(data,status,headers,config){
 			if( data != 'continue' ) {
@@ -36,16 +60,16 @@ app.controller('loginCtrl', function($scope, $location, $rootScope, $http){
 					//console.log('cookies = ' + data);
 					$rootScope.loggedIn = true;
 					//console.log($rootScope.loggedIn);
+					$rootScope.currentListId = false;
 					$location.path('/dashboard');
 				} else {
 					var x = data.indexOf('p');
 					$rootScope.userId = data.slice(0,x);
 					//console.log('userID = ' + $rootScope.userId);
-
 					var strLength = data.length;
 					data.split("");
 					$rootScope.currentListId = data.slice(x+1,strLength);
-					//console.log('currentList = ' + $rootScope.currentListId);
+					console.log('currentList = ' + $rootScope.currentListId);
 
 					$rootScope.loggedIn = true;
 					//console.log($rootScope.loggedIn);
@@ -56,8 +80,8 @@ app.controller('loginCtrl', function($scope, $location, $rootScope, $http){
 				console.log('no cookies');
 			}
 		});
-	}
-	checkCockie();
+	}*/
+	cookiesSvc.checkCookie();
 
 	$scope.submit = function(){
 		$http.post("php/login.php",{'uname':$scope.username, 'pass':$scope.password })
@@ -75,6 +99,41 @@ app.controller('loginCtrl', function($scope, $location, $rootScope, $http){
 				console.log($rootScope.loggedIn);
 				console.log('data = '+data+' rs= '+$rootScope.userId);
 				$location.path('/dashboard');
+			}
+		});
+	}
+});
+
+app.service('cookiesSvc', function($rootScope, $http, $location){
+	this.checkCookie = function(){
+		$http.post("php/checkcookie.php")
+		.success(function(data,status,headers,config){
+			if( data != 'continue' ) {
+				if(data.indexOf('p') === -1){
+					$rootScope.userId = data;
+					$rootScope.loggedIn = true;
+					$rootScope.currentListId = false;
+
+					console.log('cookies = ' + data);
+					console.log($rootScope.loggedIn);
+					$location.path('/dashboard');
+				} else {
+					var x = data.indexOf('p');
+					$rootScope.userId = data.slice(0,x);
+					console.log('userID = ' + $rootScope.userId);
+
+					var strLength = data.length;
+					data.split("");
+					$rootScope.currentListId = data.slice(x+1,strLength);
+					console.log('currentList = ' + $rootScope.currentListId);
+
+					$rootScope.loggedIn = true;
+					console.log($rootScope.loggedIn);
+					$location.path('/list');
+				}
+				
+			} else {
+				console.log('no cookies');
 			}
 		});
 	}

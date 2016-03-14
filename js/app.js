@@ -26,7 +26,6 @@ var app = angular.module('ToDo',['login']);
 						console.log('coockiessss dboard = ' + response);
 					});
 				}
-				
 			}
 			setListCookies();
 
@@ -240,7 +239,13 @@ var app = angular.module('ToDo',['login']);
 			}
 
 			$scope.todashboard = function(){
-				$location.path('/');
+				
+				$http.post("php/setdboardcookies.php", {'row':$rootScope.userId})
+					.then(function (response) {
+						console.log('coockiessss dboard = ' + response);
+						$location.path('/dashboard');
+					});
+
 			}
 		});
 
