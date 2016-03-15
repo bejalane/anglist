@@ -3,10 +3,10 @@
 
 		function fetchlists(){
 			$http.post("php/fetchlists.php", {'userId':$rootScope.userId})
-				.then(function (response) {
-					$scope.mylists = response.data.records;
-					console.log($scope.mylists);
-				});
+			.then(function (response) {
+				$scope.mylists = response.data.records;
+				console.log($scope.mylists);
+			});
 		}
 		fetchlists();
 
