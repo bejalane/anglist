@@ -1,5 +1,5 @@
 /*
-Theme Name: Ormish 1.0.0
+Theme Name: Ormish 1.0.1
 Description: Theme by Alex
 Author: Alex
 Version: 1.1
@@ -128,10 +128,12 @@ HEADER
     -webkit-background-size: 100% 5px;
     background-size: 100% 40px;
     color: #fff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .top-menu li.top-menu-donation  a{
     color: #fff;
     font-family: FbExpresiviBold;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .top-menu>ul>li:last-child>a:after {
     content: '';
@@ -259,9 +261,9 @@ HOMEPAGE
     text-align: center;
     line-height: 1;
 }
-.hc-white {color: #fff;}
-.hc-orange {color: #F05A28;}
-.hc-blue {color: #04B8E2;}
+.hc-white {color: #fff; -webkit-text-stroke: .025em rgba(255,255,255,0.50);}
+.hc-orange {color: #F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);}
+.hc-blue {color: #04B8E2; -webkit-text-stroke: .025em rgba(4,184,226,0.50);}
 /*---------homepage elements----------*/
 .homepage-left-sidebar {
     /*padding-bottom;*/
@@ -285,6 +287,7 @@ HOMEPAGE
 .homepage-left-sidebar-article {
     color: #1B75BB;
     padding: 13px;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
 }
 .homepage-left-sidebar-article-heartd {
     text-align: center;
@@ -416,12 +419,14 @@ HOMEPAGE
     position: absolute;
     top: 120px;
     width: 100%;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .homepage-right-sidebar-posts-article {
     color: #fff;
     font-size: 21px;
     line-height: 1.2;
     text-align: center;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
     padding: 0 25px 25px 25px;
     border-bottom: 1px dotted #fff;
 }
@@ -691,10 +696,10 @@ WE ARE
     width: 40px;
     margin-left: -20px;
 }
-.we-page-title-color-white { color: #fff; }
-.we-page-title-color-blue { color: #1B75BB; }
-.we-page-title-color-orange { color: #F05A28; }
-.we-page-title-color-yellow { color: #F9EF6B; }
+.we-page-title-color-white { color: #fff; -webkit-text-stroke: .025em rgba(255,255,255,0.50);}
+.we-page-title-color-blue { color: #1B75BB; -webkit-text-stroke: .025em rgba(27,117,187,0.50);}
+.we-page-title-color-orange { color: #F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);}
+.we-page-title-color-yellow { color: #F9EF6B; -webkit-text-stroke: .025em rgba(249,239,107,0.50); }
 .we-page-title-color-white h2:after {background-color: #fff}
 .we-page-title-color-blue h2:after {background-color: #1B75BB}
 .we-page-title-color-orange h2:after {background-color: #F05A28}
@@ -777,9 +782,9 @@ WE ARE
 .we-s-text-white:after { background-color: #fff; }
 .we-s-text-blue:after { background-color: #1B75BB; }
 .we-s-text-orange:after { background-color: #F05A28; }
-.we-s-text-white { color: #fff; }
-.we-s-text-blue { color: #1B75BB; }
-.we-s-text-orange { color: #F05A28; }
+.we-s-text-white { color: #fff; -webkit-text-stroke: .025em rgba(255,255,255,0.50);}
+.we-s-text-blue { color: #1B75BB; -webkit-text-stroke: .025em rgba(27,117,187,0.50);}
+.we-s-text-orange { color: #F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);}
 .we-s-bg-blue { background-color: #04B8E2; }
 .we-s-bg-cyan { background-color: #02A0C5; }
 .we-s-bg-darkcyan { background-color: #9EDBF1; }
@@ -829,6 +834,7 @@ WE ARE
     font-size: 25px;
     text-align: center;
     color: #fff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .we-text a {
     color: #fff!important;
@@ -864,6 +870,7 @@ WE ARE
 .we-goals-slider-container {
     padding: 40px 5% 40px 5%;
     background-color: #10BBD9;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .we-goals-slider-container-slider-wrapper {
     width: 100%;
@@ -881,21 +888,24 @@ WE ARE
     font-size: 20px;
     color: #fff;
     line-height: 1.4;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
     clear: both;
 }
 .we-goals-slider-container-text-quote-top {
     font-size: 107px;
     color: #F9EF69;
     position: absolute;
-    right: -7px;
+    right: 0;
     top: -40px;
+    -webkit-text-stroke: .025em rgba(249,239,105,0.50);
 }
 .we-goals-slider-container-text-quote-bottom {
     font-size: 107px;
     color: #F9EF69;
     position: absolute;
-    bottom: -85 bpx;
-    left: 20px;
+    bottom: -100px;
+    left: 0;
+    -webkit-text-stroke: .025em rgba(249,239,105,0.50);
 }
 .we-goals-slider-container-face {
     width: 100%;
@@ -1023,8 +1033,8 @@ WE ARE
 }
 .we-c-text-yellow:after { background-color: #F9EF69; }
 .we-c-text-orange:after { background-color: #F05A28; }
-.we-c-text-yellow { color: #F9EF69; }
-.we-c-text-orange { color: #F05A28; }
+.we-c-text-yellow { color: #F9EF69; -webkit-text-stroke: .025em rgba(249,239,105,0.50);}
+.we-c-text-orange { color: #F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);}
 .we-c-bg-text-yellow { color: rgba(249,239,105,0.3); }
 .we-c-bg-text-orange { color: rgba(240,90,40,0.3); }
 .we-c-bg-blue { background-color: rgba(158,219,241,0.8); }
@@ -1044,15 +1054,18 @@ WE ARE
     border-radius: 50px;
     color: #1B75BB;
     position: relative;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
 }
 .we-activities-container-sign:hover {
     background-color: #1B75BB;
     color: #ffffff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .we-activities-container-sign:after,
 .we-activities-container-sign:before {
@@ -1083,6 +1096,7 @@ WE ARE
 }
 .we-time-container-wrapper h2 {
     color: #1B75BB;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
 }
 .we-time-container-wrapper h2:after {
     background-color: #1B75BB;
@@ -1122,9 +1136,11 @@ WE ARE
 .we-time-table .table-mounth {
     text-align: right;
     width: 10%;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
 }
 .we-time-table .table-title {
     width: 75%;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
 }
 /*----------We association---------*/
 .we-association-container {
@@ -1147,6 +1163,7 @@ WE ARE
     box-sizing: border-box;
     color: #1b75bb;
     padding: 2%;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center;
@@ -1234,6 +1251,7 @@ WE ARE
     text-align: right;
     font-size: 23px;
     padding: 0 3% ;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .we-more-association-item:not(:last-child) {
     border-left: 3px dotted #9EDBF1;
@@ -1256,6 +1274,7 @@ WE ARE
     color: #ffffff;
     font-size: 20px;
     padding-left: 1%;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .we-society-item:not(:first-child) {
     border-right: 3px dotted #9EDBF1;
@@ -1277,6 +1296,7 @@ WE ARE
 }
 .we-volunteer-container h2 {
     color: #f9ef69;
+    -webkit-text-stroke: .025em rgba(249,239,105,0.50);
 }
 .we-volunteer-container h2:after {
     background-color: #f9ef69;
@@ -1295,17 +1315,20 @@ WE ARE
     border-radius: 20px;
     position: relative;
     padding-top: 5px;
+    -webkit-text-stroke: .025em rgba(240,90,40,0.50);
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
+    -webkit-text-stroke: .025em rgba(240,90,40,0.50);
 }
 .we-volunteer-container button:hover,
 .we-transparency-container button:hover,
 .we-small-button:hover {
     background-color: #1B75BB;
     color: #ffffff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .we-volunteer-container button:before,
 .we-transparency-container button:before,
@@ -1339,6 +1362,7 @@ WE ARE
     background-color: #F05A28;
     text-align: center;
     color: #ffffff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .we-transparency-container p {
     font-size: 20px;
@@ -1375,6 +1399,7 @@ FOOTER
     color: #ffffff;
     font-size: 16px;
     font-family: FbExpresiviLight;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .footer .copyright .design-by {
     text-transform: uppercase;
@@ -1382,6 +1407,7 @@ FOOTER
     padding-left: 55px;
     font-family: FbExpresiviLight;
     letter-spacing: 0.5px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .footer .copyright .design-by span {
     font-family: FbExpresiviBold;
@@ -1403,6 +1429,7 @@ DONATION-PAGE
     position: relative;
     text-align: center;
     color: #ffffff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .donation-container::before, .scholarship-wrapper::before, .post-container::before {
     content: '';
@@ -1424,6 +1451,7 @@ DONATION-PAGE
     padding-bottom: 20px;
     padding-top: 65px;
     margin-bottom: 20px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .donation-header h2 span {
     font-size: 25px;
@@ -1443,6 +1471,7 @@ DONATION-PAGE
     color: #F05A28;
     padding-top: 0;
     font-family: FbExpresiviBold;
+    -webkit-text-stroke: .025em rgba(240,90,40,0.50);
 }
 .donation-text {
     font-size: 26px;
@@ -1493,6 +1522,7 @@ h2.donation-text-gradient {
 .donation-accept ul li a {
     color: #ffffff;
     text-decoration: underline;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 button.donation-submit {
     font-size: 31px;
@@ -1509,10 +1539,12 @@ button.donation-submit {
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
     transition: all .3s ease;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 button.donation-submit:hover{
     color: #f05a28;
     background-color: #ffffff;
+    -webkit-text-stroke: .025em rgba(240,90,40,0.50);
 }
 button.donation-submit:hover:after,
 button.donation-submit:hover:before {
@@ -1523,6 +1555,7 @@ button.donation-submit:before {
     color: #ffffff;
     position: absolute;
     right: 15px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 button.donation-submit:after {
     content: '\2022';
@@ -1579,7 +1612,7 @@ SCHOLARSHIP-PAGE
 .sb-block-cyan {background-color: #04b8e2;}
 .sb-block-blue {background-color: #1B75BB;}
 .scholarship-block h2, .scholar-request-heading h2, .scholarship-names h2 {
-    font-size: 2.8rem;
+    font-size: 42px;
     text-align: center;
     font-family: FbExpresiviBlack;
     margin: 0;
@@ -1590,7 +1623,7 @@ SCHOLARSHIP-PAGE
     margin-bottom: 20px;
 }
 .scholarship-block h2 span, .scholar-request-heading h2 span, .scholarship-names h2 span {
-    font-size: 1.87rem;
+    font-size: 25px;
     font-family: FbExpresiviLight;
 }
 .scholarship-block h2:after, .scholar-request-heading h2:after, .scholarship-names h2:after {
@@ -1604,17 +1637,21 @@ SCHOLARSHIP-PAGE
 }
 .scholar-request-heading h2 {
     color: #1b75bb;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
 }
 .sh-head-white {
     color: #fff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .sh-head-white:after {background-color: #fff;}
 .sh-head-blue {
     color: #1b75bb;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
 }
 .sh-head-blue:after {background-color: #1b75bb;}
 .sh-head-cyan {
     color: #9EDBF1;
+    -webkit-text-stroke: .025em rgba(158,219,241,0.50);
 }
 .sh-head-cyan:after {background-color: #9EDBF1;}
 .scholarship-description {
@@ -1622,6 +1659,7 @@ SCHOLARSHIP-PAGE
     text-align: center;
     color: #fff;
     margin-top: 30px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .scholarship-request-buttons {
     text-align: center;
@@ -1636,6 +1674,7 @@ SCHOLARSHIP-PAGE
     width: 325px;
     font-size: 33px;
     margin: 0 100px;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
     margin-bottom: 20px;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
@@ -1674,6 +1713,7 @@ SCHOLARSHIP-PAGE
 .scholarship-names {
     /*background-color: #1B75BB;*/
     /*color: #ffffff;*/
+    /*-webkit-text-stroke: .025em rgba(255,255,255,0.50);*/
 }
 .scholarship-names-carousel .item-heading {
     background: url("img/flag.png") no-repeat center;
@@ -1731,6 +1771,7 @@ SCHOLARSHIP-PAGE
     font-weight: bold;
     padding-right: 70px;
     margin: 30px 0 0 0;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .scholarship-names-carousel .recipients-list {
     padding-right: 70px;
@@ -1744,6 +1785,7 @@ ul.recipients-list li {
     font-family: FbExpresiviRegular;
     color: #fff;
     font-size: 20px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .scholarship-names-carousel .item-heading:after {
     height: 7px;
@@ -1757,6 +1799,7 @@ ul.recipients-list li {
     background-color: #1B75BB;
     color: #ffffff;
     padding: 40px 5% 0 5%;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .scholarship-committee-slider {
     padding: 0 5%;
@@ -1765,14 +1808,15 @@ ul.recipients-list li {
     width: 100%;
 }
 h3.scholarship-committee-names-heading {
-    font-size: 2.8rem;
+    font-size: 42px;
     font-family: FbExpresiviBlack, sans-serif;
     color: #9edbf1;
     margin: 0;
     line-height: 1;
+    -webkit-text-stroke: .025em rgba(158,219,241,0.50);
 }
 h3.scholarship-committee-names-heading span {
-    font-size: 1.87rem;
+    font-size: 34px;
     font-family: FbExpresiviRegular,sans-serif;
 }
 h3.scholarship-committee-names-heading:after {
@@ -1833,10 +1877,6 @@ h2.scholarship-text-gradient:before {
     top: 10px;
     margin-right: 20px;
 }
-.scholarship-committee .flex-direction-nav{
-    top: 200px;
-    left: 0;
-}
 /*
 =========================================================
 VOLUNTEERING
@@ -1866,6 +1906,7 @@ VOLUNTEERING
     padding-bottom: 20px;
     padding-top: 65px;
     margin-bottom: 20px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .volunteering-header h2 span {
     font-size: 25px;
@@ -1885,12 +1926,14 @@ VOLUNTEERING
     color: #F05A28;
     padding-top: 0;
     font-family: FbExpresiviBold;
+    -webkit-text-stroke: .025em rgba(240,90,40,0.50);
 }
 .volunteering-text {
     padding: 35px 5% ;
     text-align: center;
     color: #fff;
     font-size: 27px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 ul.volunteering-list {
     padding: 0 5% 20px 5%;
@@ -1903,6 +1946,7 @@ ul.volunteering-list li {
     font-size: 27px;
     color: #fff;
     padding: 7px 50px 7px 10px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 span.volunteering-list-triangle {
     width: 0;
@@ -1922,6 +1966,7 @@ span.volunteering-list-triangle {
     color: #9EDBF1;
     font-family: FbExpresiviBold;
     font-size: 1.8rem;
+    -webkit-text-stroke: .025em rgba(158,219,241,0.50);
 }
 .volunteering-email-text {
     font-size: 2.8rem;
@@ -1990,6 +2035,7 @@ h2.volunteer-text-gradient:before {
     width: 100%;
     text-align: right;
     color: #04B8E2;
+    -webkit-text-stroke: .025em rgba(4,184,226,0.50);
     padding: 5px 10px;
     font-size: 27px;
     font-family: FbExpresiviLight;
@@ -2014,6 +2060,7 @@ h2.volunteer-text-gradient:before {
     border-radius: 20px;
     position: relative;
     padding-top: 5px;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
     display: inline-block;
     cursor: pointer;
     width: auto;
@@ -2097,14 +2144,14 @@ h2.volunteer-text-gradient:before {
 .vol-contact-btn {
     position: relative;
 }
-.volunteering-form-wrapper input::-webkit-input-placeholder { color:#F05A28; /*-webkit-text-stroke: .025em rgba(240,90,40,0.50); */}
-.volunteering-form-wrapper input:-moz-placeholder { color:#F05A28; /*-webkit-text-stroke: .025em rgba(240,90,40,0.50); */} /* FF 4-18 */
-.volunteering-form-wrapper input::-moz-placeholder { color:#F05A28; /*-webkit-text-stroke: .025em rgba(240,90,40,0.50); */ } /* FF 19+ */
-.volunteering-form-wrapper input:-ms-input-placeholder { color:#F05A28; /*-webkit-text-stroke: .025em rgba(240,90,40,0.50); */} /* IE 10+ */
-.volunteering-form-wrapper textarea::-webkit-input-placeholder { color:#F05A28; /*-webkit-text-stroke: .025em rgba(240,90,40,0.50);*/}
-.volunteering-form-wrapper textarea:-moz-placeholder { color:#F05A28; /*-webkit-text-stroke: .025em rgba(240,90,40,0.50);*/} /* FF 4-18 */
-.volunteering-form-wrapper textarea::-moz-placeholder { color:#F05A28; /*-webkit-text-stroke: .025em rgba(240,90,40,0.50);*/} /* FF 19+ */
-.volunteering-form-wrapper textarea:-ms-input-placeholder { color:#F05A28; /*-webkit-text-stroke: .025em rgba(240,90,40,0.50);*/} /* IE 10+ */
+.volunteering-form-wrapper input::-webkit-input-placeholder { color:#F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);}
+.volunteering-form-wrapper input:-moz-placeholder { color:#F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);} /* FF 4-18 */
+.volunteering-form-wrapper input::-moz-placeholder { color:#F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);} /* FF 19+ */
+.volunteering-form-wrapper input:-ms-input-placeholder { color:#F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);} /* IE 10+ */
+.volunteering-form-wrapper textarea::-webkit-input-placeholder { color:#F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);}
+.volunteering-form-wrapper textarea:-moz-placeholder { color:#F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);} /* FF 4-18 */
+.volunteering-form-wrapper textarea::-moz-placeholder { color:#F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);} /* FF 19+ */
+.volunteering-form-wrapper textarea:-ms-input-placeholder { color:#F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);} /* IE 10+ */
 /*====================================================
 BEAUTY MORNING
 ======================================================
@@ -2154,9 +2201,11 @@ BEAUTY MORNING
 .beauty-container-yellow .beauty-header h2,
 .beauty-container-blue .beauty-header h2 {
     color: #f05a28;
+    -webkit-text-stroke: .025em rgba(240,90,40,0.50);
 }
 .beauty-container-orange .beauty-header h2 {
     color: #fff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .beauty-header h2 span {
     font-size: 25px;
@@ -2186,17 +2235,16 @@ BEAUTY MORNING
 .beauty-container-yellow .beauty-subheader,
 .beauty-container-blue .beauty-subheader {
     color: #1b75bb;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
 }
 .beauty-container-orange .beauty-subheader {
     color: #fff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .beauty-slider .flexslider {
     background: none;
     border: none;
     margin: 0;
-}
-.beauty-subheader p a:hover {
-    text-decoration: underline;
 }
 .beauty-slider .flexslider .slides {
     max-height: 750px;
@@ -2266,6 +2314,7 @@ BEAUTY MORNING
     font-size: 42px;
     font-family: FbExpresiviBlack, sans-serif;
     color: #f9ef69;
+    -webkit-text-stroke: .025em rgba(249,239,105,0.50);
     line-height: 0.85;
     margin: 0;
     position: relative;
@@ -2461,6 +2510,7 @@ CONTACT
     padding-top: 85px;
     text-align: center;
     color: #ffffff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .contact-container::before {
     content: '';
@@ -2481,7 +2531,7 @@ CONTACT
     padding-bottom: 20px;
     padding-top: 30px;
     margin-bottom: 20px;
-
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .contact-container h2:after {
     content: "";
@@ -2495,6 +2545,7 @@ CONTACT
 }
 .contact-text {
     font-size: 32px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
     font-family: FbExpresiviLight;
     padding: 35px 0;
 }
@@ -2513,6 +2564,7 @@ CONTACT
 }
 .contact-download-text {
     font-size: 27px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
     font-family: FbExpresiviLight;
     display: inline-block;
     padding: 0 20px;
@@ -2526,6 +2578,7 @@ CONTACT
     border-radius: 20px;
     position: relative;
     padding-top: 5px;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
     display: inline-block;
     cursor: pointer;
     -webkit-transition: all .3s ease;
@@ -2537,6 +2590,7 @@ CONTACT
 .contact-download-btn:hover {
     color: #ffffff;
     background-color: #1B75BB;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .contact-download-btn:before {
     content: '';
@@ -2569,6 +2623,7 @@ CONTACT
     width: 100%;
     text-align: right;
     color: #04B8E2;
+    -webkit-text-stroke: .025em rgba(4,184,226,0.50);
     padding: 5px 10px;
     font-size: 27px;
     font-family: FbExpresiviLight;
@@ -2593,6 +2648,7 @@ CONTACT
     border-radius: 20px;
     position: relative;
     padding-top: 5px;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
     display: inline-block;
     cursor: pointer;
     width: auto;
@@ -2608,25 +2664,6 @@ CONTACT
     color: #1B75BB;
     background-color: #fff;
 }
-.contact-subject-custom {
-    max-width: 800px;
-    background-color: #1B75BB;
-    padding: 10px!important;
-    box-sizing: border-box;
-    text-align: right;
-    margin: 0 auto;
-    border-top: 3px dotted #8DD2ED!important;
-    border-bottom: 3px dotted #8DD2ED!important;
-    font-size: 27px;
-    font-family: FbExpresiviLight;
-    display: inline-block;
-    color: #fff!important;
-}
-.contact-subject-custom::-webkit-input-placeholder {color:#fff;}
-.contact-subject-custom:-moz-placeholder {color:#fff;}
-.contact-subject-custom::-moz-placeholder {color:#fff;}
-.contact-subject-custom:-ms-input-placeholder {color:#fff;}
-
 .contact-btn {
     position: relative;
 }
@@ -2675,6 +2712,7 @@ CONTACT
     float: left;
     text-align: right;
     font-size: 28px;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
     margin-right: 30px;
     margin-bottom: 0;
     font-family: FbExpresiviLight, sans-serif;
@@ -2682,6 +2720,7 @@ CONTACT
 .contact-with-love p span {
     font-family: FbExpresiviBlack, sans-serif;
     font-size: 32px;
+    -webkit-text-stroke: .025em rgba(249,239,105,0.50);
     color: #f9ef69;
 }
 .contact-with-love img {
@@ -2737,6 +2776,7 @@ p.contact-all {
     font-size: 27px;
     padding-top: 20px;
     padding-bottom: 20px;
+    -webkit-text-stroke: .025em rgba(27, 117, 187, 0.50);
 }
 p.contact-all span {
     font-family: FbExpresiviBlack, sans-serif;
@@ -2956,6 +2996,7 @@ ACTIVITIES
     font-size: 37px;
     color: #f9ef69;
     margin-bottom: 10px;
+    -webkit-text-stroke: .025em rgba(249,239,105,0.50);
     position: relative;
 }
 .activities-running-string marquee {
@@ -3006,6 +3047,7 @@ ACTIVITIES
     border-radius: 50px;
     color: #1B75BB;
     position: relative;
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -3101,8 +3143,8 @@ ACTIVITIES
 }
 .c-text-yellow:after { background-color: #F9EF69; }
 .c-text-orange:after { background-color: #F05A28; }
-.c-text-yellow { color: #F9EF69;}
-.c-text-orange { color: #F05A28; }
+.c-text-yellow { color: #F9EF69; -webkit-text-stroke: .025em rgba(249,239,105,0.50);}
+.c-text-orange { color: #F05A28; -webkit-text-stroke: .025em rgba(240,90,40,0.50);}
 .c-bg-text-yellow { color: rgba(249,239,105,0.3); }
 .c-bg-text-orange { color: rgba(240,90,40,0.3); }
 .c-bg-blue { background-color: rgba(158,219,241,0.8); }
@@ -3167,6 +3209,7 @@ CURRENT-ACTIVITIES
 }
 .current-activities-blue {
     color: #06B7E0!important;
+    -webkit-text-stroke: .025em rgba(6,183,224,0.50);
 }
 .current-activities-blue h2:after {
     background-color: #06B7E0!important;
@@ -3178,6 +3221,7 @@ CURRENT-ACTIVITIES
 .current-activities-text-orange {
     color: #F05A28;
     border-color: #F05A28;
+    -webkit-text-stroke: .025em rgba(240,90,40,0.50)
 }
 .current-activities-text-orange a {
     color: inherit;
@@ -3186,6 +3230,7 @@ CURRENT-ACTIVITIES
 .current-activities-text-yellow {
     color: #F9EF69;
     border-color: #F9EF69;
+    -webkit-text-stroke: .025em rgba(249,239,105,0.50)
 }
 .current-activities-text-yellow a {
     color: inherit;
@@ -3342,7 +3387,6 @@ CURRENT-ACTIVITIES
 .square-inner-text:after {
     content: "";
     position: relative;
-    top: 5px;
     height: 10px;
     width: 40px;
     display: block;
@@ -3527,6 +3571,7 @@ WE TRANSFER
     font-size: 25px;
     text-align: center;
     color: #fff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 .we-transfer-wrapper .slides {
     max-height: 800px;
@@ -3543,6 +3588,7 @@ h1.we-transfer-heading {
     padding-top: 30px;
     margin-bottom: 20px;
     color: #f9ef69;
+    -webkit-text-stroke: .025em rgba(249,239,105,0.50);
 }
 h1.we-transfer-heading span {
     font-size: 25px;
@@ -3563,6 +3609,7 @@ h1.we-transfer-heading:after {
 
 .post-event-heading, .post-event-heading span {
     color: #fff!important;
+    -webkit-text-stroke: .025em rgba(249,239,105,0)!important;
 }
 h1.post-event-heading:after {
     background-color: #fff;
@@ -3714,14 +3761,6 @@ h2.we-transfer-text-gradient:before {
 .html5gallery-thumbs-0 {width: 100%!important; margin-left: 0!important;}
 .html5gallery-tn-selected-0, .html5gallery-tn-0, .html5gallery-tn-img-0, .html5gallery-tn-img-0>div, .html5gallery-tn-img-0>div>img {width: 100px!important; height: 100px!important;}
 
-.html5gallery-elem-img-0{
-    width: 100%!important;
-}
-.html5gallery-elem-img-0 img {
-    width: 100%!important;
-    height: auto!important;
-    left: 0!important;
-}
 
 /*
 ====================================
@@ -3758,6 +3797,7 @@ h1.song-heading {
     padding-top: 30px;
     margin-bottom: 20px;
     color: #fff;
+    -webkit-text-stroke: .025em rgba(255,255,255,0.50);
 }
 h1.song-heading span {
     font-size: 25px;
@@ -3944,7 +3984,7 @@ h1.list-volunteers-heading {
     padding-top: 30px;
     margin-bottom: 20px;
     color: #9bd9f0;
-
+    -webkit-text-stroke: .025em rgba(155,217,240,0.50);
 }
 h1.list-volunteers-heading span {
     font-size: 25px;
@@ -4150,7 +4190,7 @@ box-sizing: border-box;
     border-radius: 20px;
     position: relative;
     padding-top: 5px;
-
+    -webkit-text-stroke: .025em rgba(27,117,187,0.50);
     display: inline-block;
     cursor: pointer;
     width: auto;
@@ -4449,10 +4489,10 @@ MEDIA
         margin-right: 10px;
     }
     .scholarship-block h2, .scholar-request-heading h2, .scholarship-names h2 {
-        font-size: 4rem;
+        font-size: 5rem;
     }
     .scholarship-block h2 span, .scholar-request-heading h2 span, .scholarship-names h2 span {
-        font-size: 2rem;
+        font-size: 4rem;
     }
     /*----------volunteering------------*/
     ul.volunteering-list li {
@@ -4469,9 +4509,9 @@ MEDIA
     .we-transfer-wrapper .slides {
         max-height: 600px;
     }
-    /*.flex-direction-nav {
+    .flex-direction-nav {
         top: 300px;
-    }*/
+    }
     .list-volunteers-section {
         font-size: 18px;
     }
@@ -4481,12 +4521,6 @@ MEDIA
     .beauty-container article.beauty-letter {
 	    font-size: 18px;
 	}
-    .scholarship-names-carousel .item-heading .recipients-years {
-        padding-right: 50px;
-    }
-    .scholarship-names-carousel .item-heading .recipients {
-        margin-right: 46px;
-    }
 }
 @media only screen and  (max-width: 1365px){
     /*----------top-menu-------*/
@@ -4582,12 +4616,6 @@ MEDIA
     .song-videos .video-popup {
         width: 100%;
     }
-    h3.scholarship-committee-names-heading {
-        font-size: 3.8rem;
-    }
-    h3.scholarship-committee-names-heading span {
-        font-size: 2.2rem;
-    }
 }
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
@@ -4613,6 +4641,10 @@ MEDIA
         float: none;
         color: #ffffff;
         border-bottom: 1px solid #fff;
+        font-size: 25px;
+    }
+    .top-menu li>a {
+        padding: 0 25px;
     }
     .top-menu>ul>li .sub-menu {
         position: static;
@@ -4704,19 +4736,19 @@ MEDIA
     }
     /*--------------scholarship-page---------------*/
     h3.scholarship-committee-names-heading {
-        font-size: 4rem;
+        font-size: 40px;
     }
     h3.scholarship-committee-names-heading span {
-        font-size: 2rem;
+        font-size: 25px;
     }
     .scholarship-description {
         font-size: 24px;
     }
     .scholarship-block h2, .scholar-request-heading h2, .scholarship-names h2 {
-        font-size: 4rem;
+        font-size: 6rem;
     }
     .scholarship-block h2 span, .scholar-request-heading h2 span, .scholarship-names h2 span {
-        font-size: 2rem;
+        font-size: 5rem;
     }
     /*----------volunteering--*/
     .volunteer-h2-img img {
@@ -4861,6 +4893,11 @@ MEDIA
         padding: 0;
     }
 }
+@media (min-width: 992px) {
+    .homepage-container .col-md-push-3 {
+        left: 20.8%;
+    }
+}
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 991px) {
     /*-------------home-page----------------*/
@@ -4873,6 +4910,9 @@ MEDIA
     }
     .scrolling-sidebar-posts-wrapper-left {
         top: 100px;
+    }
+    .h-col-20 {
+        width: 50% !important;
     }
     /*-------we------*/
     .we-header h2 {
@@ -5105,8 +5145,49 @@ MEDIA
         font-size: 20px;
     }
 }
+@media only screen and (max-width : 767px) {
+    /*------------home-page------------*/
+    .homepage-container .homepage-cube-video {
+        width: 100%;
+    }
+    .homepage-container h2 {
+        font-size: 4rem;
+    }
+    .homepage-container h2 span {
+        font-size: 2.5rem;
+    }
+    .home-page-cube-video-heading span {
+        font-size: 2.5rem !important;
+    }
+
+}
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 480px) {
+    /*------------home-page----------*/
+    .h-col-20 {
+        width: 100% !important;
+    }
+    .homepage-container .col-xs-6 {
+        width: 100%;
+    }
+    .homepage-container h2 {
+        font-size: 7rem;
+    }
+    .homepage-container h2 span {
+        font-size: 4.5rem;
+    }
+    .home-page-cube-video-heading span {
+        font-size: 4.5rem !important;
+    }
+    .homepage-cubes-description {
+        font-size: 5rem;
+    }
+    .homepage-right-sidebar-posts-article, .homepage-left-sidebar-article p {
+        font-size: 4rem;
+    }
+    .homepage-left-sidebar .more {
+        bottom: 10px;
+    }
     /*------------donation-------------*/
     .donation-h2-img img {
         height: 70px;
@@ -5170,10 +5251,10 @@ MEDIA
         font-size: 6rem;
     }
     h3.scholarship-committee-names-heading {
-        font-size: 8rem;
+        font-size: 30px;
     }
     h3.scholarship-committee-names-heading span {
-        font-size: 6rem;
+        font-size: 20px;
     }
     ul.recipients-list li,.scholarship-committee-names-table {
         font-size: 16px;
