@@ -1,0 +1,384 @@
+<?php
+/*
+ * Template Name: home-page
+ */ ?>
+<?php get_header();?>
+    <div class="container-fluid homepage-container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="col-lg-3 col-md-3 col-sm-3 homepage-left-sidebar-col h-col-20">
+                    <div class="homepage-left-sidebar">
+                        <div class="homepage-left-sidebar-header-bg-left">
+                            <h2 class="hc-orange "><span>הורים כותבים</span><br>מכתבי תודה מרגשים</h2>
+                        </div>
+                        <div class="homepage-left-sidebar-posts">
+                            <div class="less less-posts-left"><img src="<?php bloginfo('template_directory'); ?>/img/316.png" alt=""/></div>
+                            <div class="scrolling-sidebar-posts-wrapper-left">
+                                <?php 
+                                    $the_query = new WP_Query( array( 'cat' => 10, 'posts_per_page' => -1 ) ); ?>
+                                    <?php if ( $the_query->have_posts() ) : ?>
+                                        <!-- the loop -->
+                                        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                                            <article class="homepage-left-sidebar-article">
+                                                <h3><?php the_field('thank-letter-title'); ?></h3>
+                                                <p><?php the_field('thank-letter-text'); ?></p>
+                                                <div class="homepage-left-sidebar-article-footer"><?php the_field('thank-letter-signature'); ?></div>
+                                                <div class="homepage-left-sidebar-article-heartd"><img src="<?php bloginfo('template_directory'); ?>/img/heart-thanks.png" alt=""></div>
+                                            </article>
+                                        <?php endwhile; ?>
+                                        <!-- end of the loop -->
+
+                                        <?php wp_reset_postdata(); ?>
+                                    <?php else : ?>
+                                    <?php endif; ?>
+                            </div>
+                            <div class="homepage-left-sidebar-header-bg"></div>
+                            <div class="more more-posts-left"><img src="<?php bloginfo('template_directory'); ?>/img/315.png" alt=""/></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-7 col-sm-7">
+                    <div class="col-lg-4 col-md-4 col-sm-4 homepage-cube-range-activities-col">
+                    <?php if( have_rows('hmpg_activities') ): ?>
+                        <?php while ( have_rows('hmpg_activities') ) : the_row(); ?>
+                            <?php if( get_row_layout() == 'hmpg_activities_block' ): ?>
+                                <a href="<?php the_sub_field('hmpg_activities_link'); ?>">
+                                    <div class="homepage-cube-range-activities-overlay">
+                                        <div class="homepage-cube-range-activities">
+                                            <div class="homepage-cube-range-activities-text-wrapper">
+                                                <h2 class="hc-orange"><span><?php the_sub_field('hmpg_activities_title_small'); ?></span><br><?php the_sub_field('hmpg_activities_title'); ?></h2>
+                                                <div class="homepage-cubes-description hc-orange"><?php the_sub_field('hmpg_activities_subtitle'); ?></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <?php // no layouts found ?>
+                    <?php endif; ?>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3 homepage-cube-photo-events">
+                    <?php if( have_rows('hmpg_event_photo') ): ?>
+                        <?php while ( have_rows('hmpg_event_photo') ) : the_row(); ?>
+                            <?php if( get_row_layout() == 'hmpg_event_photo_block' ): ?>
+                                <a href="<?php the_sub_field('hmpg_event_photo_link'); ?>">
+                                    <div class="homepage-cube-photo-events-overlay" data-image-first="<?php the_sub_field('hmpg_event_photo_img-first'); ?>" data-image-second="<?php the_sub_field('hmpg_event_photo_img-second'); ?>">
+                                        <span class="blt"><img src="<?php bloginfo('template_directory'); ?>/img/blt.png" alt=""/></span>
+                                        <span class="brt"><img src="<?php bloginfo('template_directory'); ?>/img/brt.png" alt=""/></span>
+                                        <span class="blb"><img src="<?php bloginfo('template_directory'); ?>/img/blb.png" alt=""/></span>
+                                        <span class="brb"><img src="<?php bloginfo('template_directory'); ?>/img/brb.png" alt=""/></span>
+                                        <div class="homepage-cube-photo-events-wrapper">
+                                            <h2 class="hc-blue"><span><?php the_sub_field('hmpg_event_photo__title_small'); ?></span><br><?php the_sub_field('hmpg_event_photo__title'); ?></h2>
+                                            <div class="homepage-cubes-description hc-blue"><?php the_sub_field('hmpg_event_photo_subtitle'); ?></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <?php // no layouts found ?>
+                    <?php endif; ?>
+                        
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 homepage-cube-president" style="background-image: url('<?php the_field('hmpg_image'); ?>');"></div>
+                    <div class="cleafix"></div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <?php if( have_rows('hmpg_parents') ): ?>
+                        <?php while ( have_rows('hmpg_parents') ) : the_row(); ?>
+                            <?php if( get_row_layout() == 'hmpg_parents_block' ): ?>
+                                <a href="<?php the_sub_field('hmpg_parents_link'); ?>">
+                                    <div class="homepage-cube-ministers">
+                                        <div class="homepage-cube-ministers-overlay">
+                                            <h2 class="hc-white"><span><?php the_sub_field('hmpg_parents_title_small'); ?></span><br><?php the_sub_field('hmpg_parents_title'); ?></h2>
+                                            <div class="homepage-cubes-description hc-white"><?php the_sub_field('hmpg_parents_subtitle'); ?></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <?php // no layouts found ?>
+                    <?php endif; ?>
+
+                    <?php if( have_rows('hmpg_longing') ): ?>
+                        <?php while ( have_rows('hmpg_longing') ) : the_row(); ?>
+                            <?php if( get_row_layout() == 'hmpg_longing_block' ): ?>
+                                <a href="<?php the_sub_field('hmpg_longing_link'); ?>">
+                                    <div class="homepage-cube-longing" data-image-first="<?php the_sub_field('hmpg_longing_img-first'); ?>" data-image-second="<?php the_sub_field('hmpg_longing_img-second'); ?>">
+                                        <div class="homepage-cube-longing-overlay">
+                                            <div class="homepage-cube-photo-events-wrapper">
+                                                <h2 class="hc-white"><span><?php the_sub_field('hmpg_longing_title_small'); ?></span><br><?php the_sub_field('hmpg_longing_title'); ?></h2>
+                                                <div class="homepage-cubes-description hc-white"><?php the_sub_field('hmpg_longing_subtitle'); ?></div>
+                                            </div>
+                                            <div class="homepage-cube-longing-song"><?php the_sub_field('hmpg_longing_words_bg'); ?></div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <?php // no layouts found ?>
+                    <?php endif; ?>
+
+                    </div>
+
+                    <?php if( have_rows('hmpg_video') ): ?>
+                        <?php while ( have_rows('hmpg_video') ) : the_row(); ?>
+                            <?php if( get_row_layout() == 'hmpg_video_block' ): ?>
+                                
+                                <div class="col-lg-8 col-md-8 col-sm-8 homepage-cube-video" style="background-image: url('<?php the_sub_field('hmpg_video_bg_image'); ?>');">
+                                    <a class="video-popup" href="javascript:;" rel="<?php the_sub_field('hmpg_video_link'); ?>">
+                                        <div class="homepage-cube-video-play">
+                                            <img src="<?php bloginfo('template_directory'); ?>/img/playVideo.png" alt="">
+                                        </div>
+                                        <div class="homepage-cube-video-heading-wrapper">
+                                            <h2 class="home-page-cube-video-heading hc-blue"><span><?php the_sub_field('hmpg_video_film'); ?> </span> <?php the_sub_field('hmpg_video_film_name'); ?></h2>
+                                        </div>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <?php // no layouts found ?>
+                    <?php endif; ?>
+
+
+                    
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 homepage-cols-2half homepage-right-sidebar-col">
+                    <div class="homepage-right-sidebar">
+                        <div class="homepage-right-sidebar-header-bg-right">
+                            <h2 class="hc-white"><span>הורים, תורמים</span><br>ותומכים יקרים</h2>
+                        </div>
+                        <div class="less less-posts-right"><img src="<?php bloginfo('template_directory'); ?>/img/313.png" alt=""/></div>
+                        <div class="homepage-right-sidebar-posts homepage-right-sidebar-posts-right">
+                            <span class="quote">&rdquo;</span>
+                            <?php 
+                            $the_query = new WP_Query( array( 'cat' => 5 ) ); ?>
+                            <?php if ( $the_query->have_posts() ) : ?>
+                                <!-- the loop -->
+                                <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                                    <article class="homepage-right-sidebar-posts-article">
+                                        <h3><?php the_field('thank-letter-title'); ?></h3>
+                                        <p><?php the_field('thank-letter-text'); ?></p>
+                                        <div><?php the_field('thank-letter-signature'); ?></div>
+                                    </article>
+                                <?php endwhile; ?>
+                                <!-- end of the loop -->
+
+                                <?php wp_reset_postdata(); ?>
+                            <?php else : ?>
+                            <?php endif; ?>
+                        </div>
+                        <div class="more more-posts-right"><img src="<?php bloginfo('template_directory'); ?>/img/314.png" alt=""/></div>
+                    </div>
+
+                    <div class="homepage-right-contribution">
+                    <?php if( have_rows('donation') ): ?>
+                        <?php while ( have_rows('donation') ) : the_row(); ?>
+                            <?php if( get_row_layout() == 'donation_block' ): ?>
+                                <a href="<?php the_sub_field('donation_link'); ?>" class="homepage-right-contribution-header">
+                                    <h2 class="hc-white"><?php the_sub_field('donation_title'); ?></h2>
+                                </a>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                    <?php else : ?>
+                        <?php // no layouts found ?>
+                    <?php endif; ?>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-video-modal-container hidden">
+        <div class="home-video-modal-wrapper">
+            <iframe width="700" height="500" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+        <audio id="audio" src="<?php bloginfo('template_directory'); ?>/img/music.mp3" autoplay="true">   
+            <embed 
+                src="<?php bloginfo('template_directory'); ?>/img/music.mp3"
+                width="300"
+                height="90"
+                loop="false"
+                autostart="true">
+        </audio>
+
+
+
+
+
+
+
+
+
+
+
+    <!--<div class="container-fluid homepage-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-3 homepage-left-sidebar-col">
+                    <div class="homepage-left-sidebar">
+                        <div class="homepage-left-sidebar-header-bg-left">
+                            <h2 class="hc-orange "><span>הורים כותבים</span><br>מכתבי תודה מרגשים</h2>
+                        </div>
+                        <div class="homepage-left-sidebar-posts">
+                            <div class="scrolling-sidebar-posts-wrapper-left">
+                                <article class="homepage-left-sidebar-article">
+                                    <h3>ערב טוב יקרה שלי,</h3>
+                                    <p>איך את תמיד מצליחה להאיר אותי ולגרום לי לחייך,<br/>
+                                        ימים קשים לי, קר ורטוב וזר לא יבין, ופתאום בערב,<br/>
+                                        החצי נכנס עם דבר דואר, מכתב ממך,<br/>
+                                        האחת והיחידה, חושבת תמיד, דואגת תמיד,<br/>
+                                        מלאת חום ואהבה, אז יחד עם הדמעות שהיו בעיניbr <br/>
+                                        בימים האחרונים, עלו דמעות של אור וחיוך של אהבה, <br/>
+                                        אוהבת אותך כל כך, שולחת לך חיבוק ענק מלא אהבה, <br/>
+                                        הערכה ותודה, תודה שאת מי שאת, בטוחה ויודעת <br/>
+                                        שאי אפשר היה להמציא אותך אם לא היית את, <br/>
+                                        אוהבת אותך <br/>
+
+
+                                    </p>
+                                    <div class="homepage-left-sidebar-article-footer">אסנת רוזנטל, אמא של סמ"ר נעם, מבצע צוק איתן מיתר</div>
+                                </article>
+                                <article class="homepage-left-sidebar-article">
+                                    <h3>עירית היקרה! </h3>
+                                    <p>את הדואגת לנו למתנות קטנות וגדולות כאחת, <br/>
+                                        דואגת שיהיה לנו מתוק, דואגת שנהיה יפות, <br/>
+                                        דואגת שנשמח ונרקוד..... <br/>
+                                        בפרוס השנה החדשה <br/>
+                                        מאחלים לך ולבני משפחתך <br/>
+                                        שנה של בריאות, אושר, <br/>
+                                        התפתחות, יצירתיות <br/>
+                                        ושתזכי לתמיכה הראוייה <br/>
+                                        למפעל החיים הנהדר הזה <br/>
+                                        שכולו פרי יוזמתך, <br/>
+                                        עבודה ומחשבה בלתי נלאית <br/>
+                                        בפרוס השנה החדשה <br/>
+                                        מאחלים לך ולבני משפחתך <br/>
+                                        שנה של בריאות, אושר, <br/>
+                                        התפתחות, יצירתיות <br/>
+                                        ושתזכי לתמיכה הראוייה <br/>
+                                        למפעל החיים הנהדר הזה <br/>
+                                        שכולו פרי יוזמתך, <br/>
+                                        עבודה ומחשבה בלתי נלאית <br/>
+
+                                    </p>
+                                </article>
+                            </div>
+                            <div class="homepage-left-sidebar-header-bg"></div>
+                            <div class="more more-posts-left"><img src="<?php bloginfo('template_directory'); ?>/img/315.png" alt=""/></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="col-lg-4 homepage-cube-range-activities-col">
+                        <a href="">
+                            <div class="homepage-cube-range-activities-overlay">
+                                <div class="homepage-cube-range-activities">
+                                    <div class="homepage-cube-range-activities-text-wrapper">
+                                        <h2 class="hc-orange"><span>מגוון</span><br>פעילויות</h2>
+                                        <div class="homepage-cubes-description hc-orange">העצמה, העשרה, תמיכה <br>וליווי אישי</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 homepage-cube-photo-events">
+                        <a href="">
+                        <div class="homepage-cube-photo-events-overlay" data-image-first="<?php the_field('img'); ?>" data-image-second="<?php the_field('img2'); ?>">
+                            <span class="blt"><img src="<?php bloginfo('template_directory'); ?>/img/blt.png" alt=""/></span>
+                            <span class="brt"><img src="<?php bloginfo('template_directory'); ?>/img/brt.png" alt=""/></span>
+                            <span class="blb"><img src="<?php bloginfo('template_directory'); ?>/img/blb.png" alt=""/></span>
+                            <span class="brb"><img src="<?php bloginfo('template_directory'); ?>/img/brb.png" alt=""/></span>
+                            <div class="homepage-cube-photo-events-wrapper">
+                                <h2 class="hc-blue"><span>תמונות</span><br>מאירועים</h2>
+                                <div class="homepage-cubes-description hc-blue">לאלבומי תמונות<br>מאירועי העמותה</div>
+                            </div>
+                        </div>
+                       </a>
+                    </div>
+                    <div class="col-lg-5 homepage-cube-president"></div>
+                    <div class="cleafix"></div>
+                    <div class="col-lg-4">
+                        <a href="">
+                            <div class="homepage-cube-ministers">
+                                <div class="homepage-cube-ministers-overlay">
+                                    <h2 class="hc-white"><span>הורים</span><br>שרים</h2>
+                                    <div class="homepage-cubes-description hc-white">תמונות וסרטים בהשתתפות הורים</div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="homepage-cube-longing">
+                            <div class="homepage-cube-longing-overlay">
+                                <div class="homepage-cube-photo-events-wrapper">
+                                    <h2 class="hc-white"><span>געגוע</span><br>אינסופי</h2>
+                                    <div class="homepage-cubes-description hc-white">במיוחד בשבילנו ולמעננו
+                                        <br/>
+                                        <span>רחל שפירא</span> כתבה<br/>
+                                        <span>נורית הירש</span> הלחינה<br/>
+                                        <span>מיר בניון </span> שר
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 homepage-cube-video">
+                        <a class="video-popup" href="javascript:;" rel="<?php echo get_post_meta($post->ID, 'video-link', true); ?>">
+                        <div class="homepage-cube-video-play">
+                            <img src="<?php bloginfo('template_directory'); ?>/img/playVideo.png" alt="">
+                        </div>
+                            <div class="homepage-cube-video-heading-wrapper">
+                                <h2 class="home-page-cube-video-heading hc-blue"><span>סרט </span>אור למשפחות</h2>
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-3 homepage-right-sidebar-col">
+                    <div class="homepage-right-sidebar">
+                        <div class="homepage-right-sidebar-header-bg-right">
+                            <h2 class="hc-white"><span>הורים כותבים</span><br>מכתבי תודה מרגשים</h2>
+                        </div>
+                        <div class="homepage-right-sidebar-posts homepage-right-sidebar-posts-right">
+                            <span class="quote">&rdquo;</span>
+                            בתפקידי במדי צה״ל נחשפתי להורים<br>
+                            שאיבדו את ילדיהם בשירות הצבאי. <br>
+                            ביקרתי את המשפחות בשעותיהן<br>
+                            הקשות ביותר. <br><br>
+                            בין המשפחות היו גם ציפורה ויעקב<br>
+                            אביטן מטבריה, שבנם נחטף בהר דב <br>
+                            באוקטובר 2000. <br>
+                            משפחה נפלאה בשעה של שבר גדול. <br> <br>
+                            ההכרה שיש אימהות ואבות רבים,<br>
+                            המצפים לשווא לבנים ולבנות שלא<br>
+                            ישובו עוד, הכתה בליבי ונגעה <br>
+                            בעמקי נשמתי.<br><br>
+                            הרגשתי צורך עז לחבק ולעודד,<br>
+                            לתמוך ולסייע, <br>
+
+
+                        </div>
+                        <div class="more more-posts-right"><img src="<?php bloginfo('template_directory'); ?>/img/314.png" alt=""/></div>
+                    </div>
+                    <div class="homepage-right-contribution">
+                        <a href="" class="homepage-right-contribution-header">
+                            <h2 class="hc-white">תרומה</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="home-video-modal-container hidden">
+        <div class="home-video-modal-wrapper">
+            <iframe width="700" height="500" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>-->
+<?php get_footer('phone');?>
