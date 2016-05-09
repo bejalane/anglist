@@ -6,40 +6,10 @@
     <div class="container-fluid homepage-container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <div class="col-lg-3 col-md-3 col-sm-3 homepage-left-sidebar-col h-col-20">
-                    <div class="homepage-left-sidebar">
-                        <div class="homepage-left-sidebar-header-bg-left">
-                            <h2 class="hc-orange "><span>הורים כותבים</span><br>מכתבי תודה מרגשים</h2>
-                        </div>
-                        <div class="homepage-left-sidebar-posts">
-                            <div class="less less-posts-left"><img src="<?php bloginfo('template_directory'); ?>/img/316.png" alt=""/></div>
-                            <div class="scrolling-sidebar-posts-wrapper-left">
-                                <?php 
-                                    $the_query = new WP_Query( array( 'cat' => 10, 'posts_per_page' => -1 ) ); ?>
-                                    <?php if ( $the_query->have_posts() ) : ?>
-                                        <!-- the loop -->
-                                        <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                                            <article class="homepage-left-sidebar-article">
-                                                <h3><?php the_field('thank-letter-title'); ?></h3>
-                                                <p><?php the_field('thank-letter-text'); ?></p>
-                                                <div class="homepage-left-sidebar-article-footer"><?php the_field('thank-letter-signature'); ?></div>
-                                                <div class="homepage-left-sidebar-article-heartd"><img src="<?php bloginfo('template_directory'); ?>/img/heart-thanks.png" alt=""></div>
-                                            </article>
-                                        <?php endwhile; ?>
-                                        <!-- end of the loop -->
 
-                                        <?php wp_reset_postdata(); ?>
-                                    <?php else : ?>
-                                    <?php endif; ?>
-                            </div>
-                            <div class="homepage-left-sidebar-header-bg"></div>
-                            <div class="more more-posts-left"><img src="<?php bloginfo('template_directory'); ?>/img/315.png" alt=""/></div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-7 col-md-7 col-sm-7">
-                    <div class="col-lg-4 col-md-4 col-sm-4 homepage-cube-range-activities-col">
+                <div class="col-lg-7 col-md-7 col-md-push-3">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 homepage-cube-range-activities-col">
                     <?php if( have_rows('hmpg_activities') ): ?>
                         <?php while ( have_rows('hmpg_activities') ) : the_row(); ?>
                             <?php if( get_row_layout() == 'hmpg_activities_block' ): ?>
@@ -60,7 +30,7 @@
                     <?php endif; ?>
                     </div>
 
-                    <div class="col-lg-3 col-md-3 col-sm-3 homepage-cube-photo-events">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6  homepage-cube-photo-events">
                     <?php if( have_rows('hmpg_event_photo') ): ?>
                         <?php while ( have_rows('hmpg_event_photo') ) : the_row(); ?>
                             <?php if( get_row_layout() == 'hmpg_event_photo_block' ): ?>
@@ -83,10 +53,10 @@
                     <?php endif; ?>
                         
                     </div>
-                    <div class="col-lg-5 col-md-5 col-sm-5 homepage-cube-president" style="background-image: url('<?php the_field('hmpg_image'); ?>');"></div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6  homepage-cube-president" style="background-image: url('<?php the_field('hmpg_image'); ?>');"></div>
                     <div class="cleafix"></div>
 
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 ">
                     <?php if( have_rows('hmpg_parents') ): ?>
                         <?php while ( have_rows('hmpg_parents') ) : the_row(); ?>
                             <?php if( get_row_layout() == 'hmpg_parents_block' ): ?>
@@ -131,11 +101,11 @@
                         <?php while ( have_rows('hmpg_video') ) : the_row(); ?>
                             <?php if( get_row_layout() == 'hmpg_video_block' ): ?>
                                 
-                                <div class="col-lg-8 col-md-8 col-sm-8 homepage-cube-video" style="background-image: url('<?php the_sub_field('hmpg_video_bg_image'); ?>');">
+                                <div class="col-lg-8 col-md-8 col-sm-8  homepage-cube-video" style="background-image: url('<?php the_sub_field('hmpg_video_bg_image'); ?>');">
                                     <a class="video-popup" href="javascript:;" rel="<?php the_sub_field('hmpg_video_link'); ?>">
-                                        <div class="homepage-cube-video-play">
-                                            <img src="<?php bloginfo('template_directory'); ?>/img/playVideo.png" alt="">
-                                        </div>
+                                    <div class="homepage-cube-video-play">
+                                        <img src="<?php bloginfo('template_directory'); ?>/img/playVideo.png" alt="">
+                                    </div>
                                         <div class="homepage-cube-video-heading-wrapper">
                                             <h2 class="home-page-cube-video-heading hc-blue"><span><?php the_sub_field('hmpg_video_film'); ?> </span> <?php the_sub_field('hmpg_video_film_name'); ?></h2>
                                         </div>
@@ -150,7 +120,38 @@
 
                     
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 homepage-cols-2half homepage-right-sidebar-col">
+                <div class="col-lg-3 col-md-3 col-md-pull-7 col-sm-6 col-xs-6 homepage-left-sidebar-col h-col-20">
+                    <div class="homepage-left-sidebar">
+                        <div class="homepage-left-sidebar-header-bg-left">
+                            <h2 class="hc-orange "><span>הורים כותבים</span><br>מכתבי תודה מרגשים</h2>
+                        </div>
+                        <div class="homepage-left-sidebar-posts">
+                            <div class="less less-posts-left"><img src="<?php bloginfo('template_directory'); ?>/img/316.png" alt=""/></div>
+                            <div class="scrolling-sidebar-posts-wrapper-left">
+                                <?php
+                                $the_query = new WP_Query( array( 'cat' => 10, 'posts_per_page' => -1 ) ); ?>
+                                <?php if ( $the_query->have_posts() ) : ?>
+                                    <!-- the loop -->
+                                    <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                                        <article class="homepage-left-sidebar-article">
+                                            <h3><?php the_field('thank-letter-title'); ?></h3>
+                                            <p><?php the_field('thank-letter-text'); ?></p>
+                                            <div class="homepage-left-sidebar-article-footer"><?php the_field('thank-letter-signature'); ?></div>
+                                            <div class="homepage-left-sidebar-article-heartd"><img src="<?php bloginfo('template_directory'); ?>/img/heart-thanks.png" alt=""></div>
+                                        </article>
+                                    <?php endwhile; ?>
+                                    <!-- end of the loop -->
+
+                                    <?php wp_reset_postdata(); ?>
+                                <?php else : ?>
+                                <?php endif; ?>
+                            </div>
+                            <div class="homepage-left-sidebar-header-bg"></div>
+                            <div class="more more-posts-left"><img src="<?php bloginfo('template_directory'); ?>/img/315.png" alt=""/></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 homepage-cols-2half homepage-right-sidebar-col h-col-20">
                     <div class="homepage-right-sidebar">
                         <div class="homepage-right-sidebar-header-bg-right">
                             <h2 class="hc-white"><span>הורים, תורמים</span><br>ותומכים יקרים</h2>
