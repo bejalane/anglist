@@ -3,7 +3,9 @@ angular.module('ToDo').config(function($routeProvider){
 	.when('/', {
 		resolve: {
 			"check": function($location, $rootScope, cookiesSvc){
-				cookiesSvc.checkCookie();
+				var cookiesCheck = cookiesSvc.checkCookie();
+				console.log(cookiesSvc.checkCookie());
+
 				/*if($rootScope.loggedIn && !$rootScope.currentListId) {
 					$location.path('/dashboard');
 				} else if($rootScope.userId && $rootScope.currentListId) {
